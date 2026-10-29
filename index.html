@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#4f46e5" />
+  <meta name="description" content="Lista de Tarefas PWA - Organize seu dia" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Minhas Tarefas" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Minhas Tarefas</title>
+</head>
+<body>
+  <header class="app-header">
+    <h1>📝 Minhas Tarefas</h1>
+    <p class="subtitle" id="date"></p>
+  </header>
+
+  <main class="container">
+    <form id="task-form" class="task-form" autocomplete="off">
+      <input
+        type="text"
+        id="task-input"
+        placeholder="O que precisa ser feito?"
+        maxlength="120"
+        required
+        aria-label="Nova tarefa"
+      />
+      <button type="submit" aria-label="Adicionar tarefa">+</button>
+    </form>
+
+    <div class="filters" role="tablist">
+      <button class="filter-btn active" data-filter="all">Todas</button>
+      <button class="filter-btn" data-filter="pending">Pendentes</button>
+      <button class="filter-btn" data-filter="done">Concluídas</button>
+    </div>
+
+    <ul id="task-list" class="task-list" aria-live="polite"></ul>
+
+    <p id="empty-msg" class="empty-msg">Nenhuma tarefa por aqui. Adicione a primeira! 🎯</p>
+
+    <div class="stats">
+      <span id="stats-text">0 tarefas</span>
+      <button id="clear-done" class="clear-btn">Limpar concluídas</button>
+    </div>
+  </main>
+
+  <div id="install-banner" class="install-banner hidden">
+    <p>Instale o app na sua tela inicial!</p>
+    <button id="install-btn">Instalar</button>
+    <button id="dismiss-btn" aria-label="Fechar">✕</button>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

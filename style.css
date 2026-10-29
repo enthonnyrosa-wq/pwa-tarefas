@@ -1,0 +1,270 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  :root {
+    --primary: #4f46e5;
+    --primary-dark: #4338ca;
+    --bg: #f4f4f9;
+    --card: #ffffff;
+    --text: #1f2937;
+    --muted: #6b7280;
+    --success: #10b981;
+    --danger: #ef4444;
+    --radius: 14px;
+  }
+  
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding-bottom: 90px;
+  }
+  
+  .app-header {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: #fff;
+    padding: 28px 20px 22px;
+    border-radius: 0 0 24px 24px;
+    box-shadow: 0 6px 20px rgba(79, 70, 229, 0.3);
+  }
+  
+  .app-header h1 {
+    font-size: 1.55rem;
+    margin-bottom: 4px;
+  }
+  
+  .subtitle {
+    font-size: 0.85rem;
+    opacity: 0.85;
+  }
+  
+  .container {
+    padding: 20px 16px;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  
+  .task-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+  
+  .task-form input {
+    flex: 1;
+    padding: 14px 16px;
+    border: 2px solid transparent;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    background: var(--card);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition: border-color 0.2s;
+  }
+  
+  .task-form input:focus {
+    outline: none;
+    border-color: var(--primary);
+  }
+  
+  .task-form button {
+    width: 54px;
+    height: 54px;
+    border: none;
+    border-radius: var(--radius);
+    background: var(--primary);
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: 300;
+    cursor: pointer;
+    transition: transform 0.15s, background 0.2s;
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.35);
+  }
+  
+  .task-form button:active {
+    transform: scale(0.92);
+    background: var(--primary-dark);
+  }
+  
+  .filters {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  
+  .filter-btn {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background: var(--card);
+    color: var(--muted);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .filter-btn.active {
+    background: var(--primary);
+    color: #fff;
+  }
+  
+  .task-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .task-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    animation: slideIn 0.25s ease;
+    touch-action: pan-y;
+  }
+  
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .task-check {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: 2px solid var(--muted);
+    flex-shrink: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+  }
+  
+  .task-item.done .task-check {
+    background: var(--success);
+    border-color: var(--success);
+  }
+  
+  .task-text {
+    flex: 1;
+    font-size: 1rem;
+    word-break: break-word;
+    transition: all 0.2s;
+  }
+  
+  .task-item.done .task-text {
+    text-decoration: line-through;
+    color: var(--muted);
+  }
+  
+  .delete-btn {
+    background: none;
+    border: none;
+    color: var(--danger);
+    font-size: 1.3rem;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 8px;
+    transition: background 0.2s;
+  }
+  
+  .delete-btn:active {
+    background: rgba(239, 68, 68, 0.15);
+  }
+  
+  .empty-msg {
+    text-align: center;
+    color: var(--muted);
+    padding: 40px 20px;
+    font-size: 0.95rem;
+    display: none;
+  }
+  
+  .empty-msg.show {
+    display: block;
+  }
+  
+  .stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  
+  .clear-btn {
+    background: none;
+    border: none;
+    color: var(--danger);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 6px 10px;
+    border-radius: 8px;
+  }
+  
+  .clear-btn:active {
+    background: rgba(239, 68, 68, 0.1);
+  }
+  
+  .install-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--card);
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    transform: translateY(0);
+    transition: transform 0.3s;
+  }
+  
+  .install-banner.hidden {
+    display: none;
+  }
+  
+  .install-banner p {
+    flex: 1;
+    font-size: 0.85rem;
+  }
+  
+  .install-banner button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 10px;
+    background: var(--primary);
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+  }
+  
+  #dismiss-btn {
+    background: transparent;
+    color: var(--muted);
+    padding: 4px 8px;
+    font-size: 1rem;
+  }
+  
+  @media (min-width: 640px) {
+    .app-header { padding: 34px 28px 26px; }
+    .app-header h1 { font-size: 1.9rem; }
+  }
